@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>呆萌-fullpage</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/zepto.fullpage.css">
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+    <div class="wp">
+        <div class="wp-inner">
+            <div class="page page1"><div class="animated fadeIn show" style="padding-top: 80px;"><p>不乱于心，不困于情。</p><p>不畏将来，不念过往。</p><p>如此，安好。</p></div></div>
+            <div class="page page2"><div style="padding-top: 10%;"><p>-- Is life always this hard, or is it just when you are a kid? </p><p style="margin-top: 100%;">-- Always like this.</p></div></div>
+            <div class="page page3"><div></div></div>
+            <div class="page page4"><div style="padding-top: 130%;font-size: 1.2em;">愿你出走半<span style="color: black;">生，归</span>来仍是少年</div></div>
+            <div class="page page5"><div style="padding-top: 70%;font-size: 1.2em;">如果<span style="font-size: 1.8em;">世</span>间所有的相遇都是久别重逢，那离别是为了什么</div></div>
+            <div class="page page6"><div style="padding-top: 65%;font-size: 1.2em;">在一秒钟内看到本质的人和花半辈子也看不清一件事本质的人,自然是不一样的命运。</div></div>
+            <div class="page page7"><div style="padding-top: 10%;font-size: 1.3em;">曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候我才后悔莫及，人世间最痛苦的事莫过于此。</div></div>
+            <div class="page page8"><div><p>取</p>经</p><p>才</p><p>是</p><p>正</p><p>道</p></div></div>
+        </div>
+    </div>
+    <style>
+        .page > div {
+            padding: 20px;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+        .show { display: inline-block; }
+        .hide { display: none; }
+        .page { background-size: cover; }
+        .page1 {background-image: url(img/wallpaper/01.jpg); color: black;text-align: center;}
+        .page2 {background-image: url(img/wallpaper/02.jpg); color: white;}
+        .page3 {background-image: url(img/wallpaper/03.jpg); color: white;}
+        .page4 {background-image: url(img/wallpaper/04.jpg); color: white;text-align: center;}
+        .page5 {background-image: url(img/wallpaper/05.jpg); color: black;}
+        .page6 {background-image: url(img/wallpaper/06.jpg); color: white;}
+        .page7 {background-image: url(img/wallpaper/07.jpg); color: white;}
+        .page8 {background-image: url(img/wallpaper/08.jpg); color: white;text-align: center}
+    </style>
+    <span class="start"><b></b></span>
+    <script src="js/zepto.js"></script>
+    <script src="js/zepto.fullpage.js"></script>
+    <script>
+        var animateArray = ["fadeIn","fadeInDown","fadeInLeft","fadeInRight","fadeInUp","rotateInUpLeft","bounceIn","bounce","bounceInDown"];
+        // 首画面
+        var randomIndex = Math.floor(Math.random()*9);
+        $(".page").find("div").addClass("hide");
+        $(".wp").find(".page1").find("div").removeAttr("class").addClass("animated").addClass(animateArray[randomIndex]);
+        // 调用
+        $('.wp-inner').fullpage({dir: 'h'},function (index) {
+            randomIndex = Math.floor(Math.random()*9);
+            $(".page").find("div").addClass("hide");
+            $(".wp").find(".page"+(index+1)).find("div").removeAttr("class").addClass("animated").addClass(animateArray[randomIndex]);
+            if(index == 7){
+                $(".start").addClass("hide");
+            }else{
+                $(".start").removeClass("hide");
+            }
+        });
+    </script>
+</body>
+</html>
